@@ -1,2 +1,82 @@
-<h1>Hello People !</h1>
-<p>My new website is coming soon.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Order Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<main class="container">
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+
+    <form id="orderForm" novalidate>
+        <fieldset class="form-step active" id="step1">
+            <legend>Step 1 of 3: Your Info</legend>
+            <h2>Let's start with your details</h2>
+            <p class="helper-text">We only use this to send your order.</p>
+
+            <div class="input-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" autocomplete="name" required placeholder="e.g., Alex Smith">
+                <span class="error-message" id="error-fullName"></span>
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" autocomplete="email" required placeholder="alex@example.com">
+                <span class="error-message" id="error-email"></span>
+            </div>
+
+            <button type="button" class="btn-next" onclick="nextStep(1)">Next: Order Details &rarr;</button>
+        </fieldset>
+
+        <fieldset class="form-step" id="step2">
+            <legend>Step 2 of 3: Order Details</legend>
+            <h2>What can we get for you?</h2>
+            
+            <div class="input-group">
+                <label for="productSelect">Choose a Product</label>
+                <select id="productSelect" name="product" required>
+                    <option value="" disabled selected>Select an option...</option>
+                    <option value="planner">ADHD Daily Planner</option>
+                    <option value="guide">Focus Guide E-book</option>
+                </select>
+                <span class="error-message" id="error-product"></span>
+            </div>
+
+            <div class="input-group">
+                <label for="notes">Additional Notes (Optional)</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="Anything else we should know?"></textarea>
+            </div>
+
+            <div class="button-row">
+                <button type="button" class="btn-back" onclick="prevStep(2)">&larr; Back</button>
+                <button type="button" class="btn-next" onclick="nextStep(2)">Next: Review &rarr;</button>
+            </div>
+        </fieldset>
+
+        <fieldset class="form-step" id="step3">
+            <legend>Step 3 of 3: Review</legend>
+            <h2>Almost done! Does this look right?</h2>
+            
+            <div id="summary" class="summary-box">
+                </div>
+
+            <input type="text" name="website_url" id="honeypot" style="display:none" tabindex="-1" autocomplete="off">
+
+            <div class="button-row">
+                <button type="button" class="btn-back" onclick="prevStep(3)">&larr; Back</button>
+                <button type="submit" class="btn-submit">Confirm Order</button>
+            </div>
+        </fieldset>
+    </form>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

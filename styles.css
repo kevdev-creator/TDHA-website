@@ -1,0 +1,142 @@
+/* styles.css */
+:root {
+    --primary: #4A90E2; /* Calming Blue */
+    --success: #2ECC71;
+    --error: #E74C3C;
+    --bg: #F9FAFB;
+    --text: #2C3E50;
+    --card-bg: #FFFFFF;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Progress Bar */
+.progress-container {
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    height: 8px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: var(--primary);
+    height: 100%;
+    width: 33%;
+    transition: width 0.4s ease;
+}
+
+/* Typography & Layout */
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: none; /* Hidden by default */
+}
+
+fieldset.active {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+legend {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+h2 { margin-top: 0; }
+
+/* Inputs */
+.input-group { margin-bottom: 1.5rem; }
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Fixes padding width issues */
+    transition: border-color 0.2s;
+}
+
+/* Focus State - Critical for accessibility/ADHD */
+input:focus, select:focus, textarea:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+/* Buttons */
+button {
+    cursor: pointer;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    transition: transform 0.1s;
+}
+
+.btn-next, .btn-submit {
+    background-color: var(--primary);
+    color: white;
+    width: 100%;
+}
+
+.button-row {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-back {
+    background-color: #eee;
+    color: #333;
+    width: 30%;
+}
+
+.btn-submit { background-color: var(--success); }
+
+button:active { transform: scale(0.98); }
+
+/* Validation Styles */
+.error-message {
+    color: var(--error);
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 5px;
+    min-height: 1.2em; /* Prevents jumping */
+}
+
+input.invalid { border-color: var(--error); background-color: #fff6f6; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
